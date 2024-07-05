@@ -1,5 +1,3 @@
-# # Create the README.md content for the user's project
-readme_content = """
 # Laravel and React Mortgage Application
 
 ## Introduction
@@ -13,7 +11,6 @@ This project is a mortgage application built with Laravel (PHP) for the backend 
   - Bank name
   - House cost
   - Monthly payment
-- Infinite scroll to load more records without pagination
 - Search functionality by bank name
 - Filtering options for:
   - House cost (greater than, less than)
@@ -33,7 +30,7 @@ This project is a mortgage application built with Laravel (PHP) for the backend 
 - Composer
 - Node.js
 - MySQL
-- XAMPP (for local development)
+- tabaleplus for sqlite 
 
 ### Backend (Laravel)
 1. Clone the repository:
@@ -103,26 +100,3 @@ This project is a mortgage application built with Laravel (PHP) for the backend 
 ### Models
 - `Mortgage`: Represents the mortgage data structure.
 
-## Configuration
-
-### CORS Configuration
-Ensure the `CorsMiddleware` is set up correctly in `app/Http/Kernel.php` and add the `Fruitcake\Cors\CorsServiceProvider` to the providers array in `config/app.php`.
-
-## Contributing
-To contribute to this project, follow these steps:
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature-branch`).
-3. Make your changes.
-4. Commit your changes (`git commit -m 'Add some feature'`).
-5. Push to the branch (`git push origin feature-branch`).
-6. Create a new Pull Request.
-
-## License
-This project is licensed under the MIT License.
-"""
-
-# Save the README.md content to a file
-with open("/mnt/data/README.md", "w") as file:
-    file.write(readme_content)
-
-"/mnt/data/README.md"
