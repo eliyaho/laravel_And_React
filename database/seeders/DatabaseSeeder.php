@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             MortgagesTableSeeder::class,
+            AdminSeeder::class, // הוספת הסידר של האדמין
         ]);
     }
 }

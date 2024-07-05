@@ -14,4 +14,7 @@ Route::middleware(\App\Http\Middleware\CorsMiddleware::class)->prefix('mortgages
 
     // Route for fetching mortgages (supports GET)
     Route::get('fetch', [MortgageController::class, 'fetchMortgages']);
+
+    // Route for login (supports POST)
+    Route::match(['post', 'get'], 'login', [MortgageController::class, 'login']);
 });

@@ -8,9 +8,9 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route exact path="/" element={<MortgageTable />} />
+        <Route exact path="/MortgageTable" element={<MortgageTable />} />
         <Route path="/admin" element={<AdminPanel />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Login />} />
       </Routes>
     </Router>
   );

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Mortgage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Faker\Factory as Faker;
 
 class MortgageController extends Controller
@@ -55,5 +56,23 @@ class MortgageController extends Controller
     {
         $mortgages = Mortgage::paginate(20); // Example pagination
         return response()->json($mortgages);
+    }
+
+    /**
+     * Handle user login.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function login(Request $request)
+    {
+        $credentials = $request->only('username', 'password');
+
+        if (Auth::attempt($credentials)) {
+            // Authentication passed...
+            return response()->json(['message' => 'Login successful'], 200);
+        }
+
+        return response()->json(['message' => 'Invalid credentials'], 401);
     }
 }
