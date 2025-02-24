@@ -22,5 +22,5 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/{any}', function () {
-    return file_get_contents(public_path('build/index.html')); // טוען את ה-HTML של React
-})->where('any', '.*'); // תופס כל נתיב שלא מתאים ל-API
+    return view('index'); // קובץ Blade שמכיל את ה-HTML של React
+})->where('any', '.*');
