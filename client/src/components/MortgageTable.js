@@ -7,12 +7,14 @@ function MortgageTable() {
     const [search, setSearch] = useState("");
     const [filters, setFilters] = useState({ cost: null, payment: null });
     const [page, setPage] = useState(1);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         fetchMortgages();
     }, [search, filters, page]);
 
     const fetchMortgages = async () => {
+        setLoading(true);
         try {
             const response = await axios.get("http://127.0.0.1:8000/mortgages/fetch", {
                 params: {
@@ -25,6 +27,8 @@ function MortgageTable() {
             setMortgages((prevMortgages) => [...prevMortgages, ...response.data.data]);
         } catch (error) {
             console.error("Error fetching mortgages:", error);
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -60,6 +64,7 @@ function MortgageTable() {
                     ))}
                 </tbody>
             </table>
+            {loading && <div className="loader">Loading more mortgages...</div>}
         </div>
     );
 }
