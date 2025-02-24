@@ -32,7 +32,7 @@ function AdminPanel() {
             setBankName("");
             setApartmentCost("");
             setMonthlyPayment("");
-            fetchMortgages(); // Refresh the list after adding a new mortgage
+            fetchMortgages();
         } catch (error) {
             console.error("Error adding mortgage:", error);
         }
@@ -41,7 +41,7 @@ function AdminPanel() {
     const handleDelete = async (id) => {
         try {
             await axios.delete(`http://127.0.0.1:8000/mortgages/${id}`);
-            fetchMortgages(); // Refresh the list after deleting a mortgage
+            fetchMortgages();
         } catch (error) {
             console.error("Error deleting mortgage:", error);
         }
@@ -50,7 +50,7 @@ function AdminPanel() {
     const handleEdit = async (id, data) => {
         try {
             await axios.put(`http://127.0.0.1:8000/mortgages/${id}`, data);
-            fetchMortgages(); // Refresh the list after editing a mortgage
+            fetchMortgages();
         } catch (error) {
             console.error("Error editing mortgage:", error);
         }
@@ -103,9 +103,9 @@ function AdminPanel() {
                 <tbody>
                     {mortgages.map((mortgage) => (
                         <tr key={mortgage.id}>
-                        <td>{mortgage.bank_name}</td>
-                        <td>{mortgage.amount}</td>
-                        <td>{mortgage.term}</td>
+                            <td>{mortgage.bank_name}</td>
+                            <td>{mortgage.amount}</td>
+                            <td>{mortgage.term}</td>
                             <td>
                                 <button onClick={() => handleEdit(mortgage.id, { bank_name: 'Updated Bank Name' })}>Edit</button>
                                 <button onClick={() => handleDelete(mortgage.id)}>Delete</button>

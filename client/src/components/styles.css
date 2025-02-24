@@ -1,10 +1,11 @@
 /* General styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     background-color: #f4f4f9;
     margin: 0;
     padding: 0;
     color: #333;
+    line-height: 1.6;
 }
 
 .container {
@@ -13,64 +14,135 @@ body {
     padding: 20px;
 }
 
-h1 {
-    text-align: center;
+h1, h2, h3 {
     color: #2c3e50;
+    text-align: center;
     margin-bottom: 20px;
-    font-size: 2.5em;
+}
+
+/* Form styles */
+form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+form div {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #2c3e50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #1a252f;
+}
+
+.continue-btn {
+    background-color: #3498db;
+    margin-top: 10px;
+}
+
+.continue-btn:hover {
+    background-color: #2980b9;
+}
+
+.error-message {
+    color: #e74c3c;
+    text-align: center;
+    margin-bottom: 15px;
 }
 
 /* Table styles */
-.mortgage-table {
+table {
     width: 100%;
     border-collapse: collapse;
     margin: 20px 0;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
+    background: #fff;
     border-radius: 8px;
-    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.mortgage-table th,
-.mortgage-table td {
-    padding: 15px;
+th, td {
+    padding: 12px;
     text-align: left;
     border-bottom: 1px solid #ddd;
 }
 
-.mortgage-table th {
+th {
     background-color: #2c3e50;
     color: #fff;
     font-weight: bold;
-    text-transform: uppercase;
 }
 
-.mortgage-table tr:hover {
+tr:hover {
     background-color: #f5f5f5;
 }
 
-.mortgage-table tr:last-child td {
-    border-bottom: none;
+/* Button styles inside tables */
+table button {
+    padding: 5px 10px;
+    margin-right: 5px;
+    font-size: 14px;
+    background-color: #3498db;
+}
+
+table button:hover {
+    background-color: #2980b9;
 }
 
 /* Responsive design */
 @media (max-width: 768px) {
-    .mortgage-table {
+    form {
+        padding: 15px;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="number"] {
+        font-size: 14px;
+    }
+
+    button {
+        font-size: 14px;
+    }
+
+    table {
         display: block;
         overflow-x: auto;
     }
-
-    .mortgage-table th,
-    .mortgage-table td {
-        padding: 10px;
-    }
-
-    h1 {
-        font-size: 2em;
-    }
 }
 
-/* Scroll animation */
+/* Animations */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -82,14 +154,6 @@ h1 {
     }
 }
 
-.mortgage-table tbody tr {
+.container {
     animation: fadeIn 0.5s ease-in-out;
-}
-
-/* Loader for infinite scroll */
-.loader {
-    text-align: center;
-    padding: 20px;
-    font-size: 1.2em;
-    color: #2c3e50;
 }

@@ -45,8 +45,7 @@ function MortgageTable() {
     return (
         <div className="container">
             <h1>Mortgage Table</h1>
-   
-            <table className="mortgage-table">
+            <table>
                 <thead>
                     <tr>
                         <th>Bank Name</th>
